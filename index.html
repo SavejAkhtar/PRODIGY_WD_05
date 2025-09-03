@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Weather Now</title>
+    <meta name="description" content="Simple weather app using Open-Meteo APIs" />
+    <link rel="preconnect" href="https://api.open-meteo.com" />
+    <link rel="preconnect" href="https://geocoding-api.open-meteo.com" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="app-header">
+      <h1>Weather Now</h1>
+      <p class="subtitle">Current weather by your location or search</p>
+    </header>
+
+    <main class="container">
+      <section class="search-section">
+        <form id="search-form" class="search-form" autocomplete="off">
+          <input
+            id="search-input"
+            type="text"
+            placeholder="Search city, state, or country..."
+            aria-label="Search location"
+          />
+          <button type="submit" class="btn primary">Search</button>
+          <button type="button" id="use-location" class="btn">Use My Location</button>
+        </form>
+        <div id="suggestions" class="suggestions" role="listbox" aria-label="Location suggestions"></div>
+      </section>
+
+      <section id="status" class="status hidden" aria-live="polite"></section>
+
+      <section id="weather" class="weather-card hidden">
+        <div class="weather-header">
+          <div class="place">
+            <h2 id="place-name">—</h2>
+            <div class="meta"><span id="coords">—</span></div>
+          </div>
+          <div class="updated" id="updated-at">—</div>
+        </div>
+        <div class="weather-body">
+          <div class="temp">
+            <div class="temp-main">
+              <span id="temperature">—</span><span class="unit">°C</span>
+            </div>
+            <div class="feels">Feels like <span id="apparent">—</span>°C</div>
+          </div>
+          <div class="icon-desc">
+            <div id="weather-icon" class="emoji">⛅</div>
+            <div id="weather-desc" class="desc">—</div>
+          </div>
+          <dl class="details">
+            <div class="detail">
+              <dt>Humidity</dt>
+              <dd id="humidity">—%</dd>
+            </div>
+            <div class="detail">
+              <dt>Precipitation</dt>
+              <dd id="precip">— mm</dd>
+            </div>
+            <div class="detail">
+              <dt>Wind</dt>
+              <dd id="wind">— km/h</dd>
+            </div>
+          </dl>
+        </div>
+      </section>
+    </main>
+
+    <footer class="app-footer">
+      <p>
+        Data by <a href="https://open-meteo.com/" target="_blank" rel="noreferrer noopener">Open‑Meteo</a>
+      </p>
+    </footer>
+
+    <script src="script.js" defer></script>
+  </body>
+  </html>
+
